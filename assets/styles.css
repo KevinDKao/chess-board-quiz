@@ -186,3 +186,90 @@ body {
         height: 80px;
     }
 }
+
+.nav-tabs .nav-link {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    border-bottom: 2px solid #e94560 !important;
+    color: #e94560 !important;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #0f3460;
+}
+
+.stats-summary {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #00a8ff;
+    text-align: center;
+}
+
+/* Piece styles */
+.chess-piece {
+    font-size: 3.5rem;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+}
+
+.white-piece {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.black-piece {
+    color: #111;
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+/* Animations for squares */
+@keyframes square-flash-correct {
+    0% { background-color: #4cd137; transform: scale(1); }
+    50% { background-color: #4cd137; transform: scale(1.15); box-shadow: 0 0 25px #4cd137; z-index: 10; border-radius: 5px; }
+    100% { }
+}
+
+@keyframes square-flash-incorrect {
+    0% { background-color: #e84118; transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    50% { background-color: #e84118; transform: translateX(8px); box-shadow: 0 0 25px #e84118; z-index: 10; border-radius: 5px; }
+    75% { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
+}
+
+.flash-correct {
+    animation: square-flash-correct 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.flash-incorrect {
+    animation: square-flash-incorrect 0.4s ease-out;
+}
+
+/* Time critical pulse */
+@keyframes time-pulse {
+    0% { color: #fbc531; transform: scale(1); }
+    50% { color: #e84118; transform: scale(1.5); text-shadow: 0 0 15px #e84118; }
+    100% { color: #fbc531; transform: scale(1); }
+}
+
+.time-critical {
+    animation: time-pulse 1s infinite;
+    color: #e84118 !important;
+}
+
+/* Switch styling overrides */
+.flip-switch .form-check-label {
+    color: #00a8ff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-left: 10px;
+}
